@@ -1,0 +1,99 @@
+# Task API
+
+## Overview
+
+This is a simple RESTful API built with Node.js and Express.js that allows you to manage tasks.  
+You can create, read, update, and delete tasks, with input validation and proper error handling.
+
+---
+
+## Setup Instructions
+
+1. Clone the repository or download the project folder:
+
+   git clone https://github.com/airtribe-projects/task-manager-api-Rishik3001.git
+   cd task-manager-api-Rishik3001
+
+2. Install dependencies:
+
+   npm install
+
+3. Start the server:
+
+   node app.js
+
+   The server will run on: http://localhost:3000
+
+---
+
+## API Endpoints
+
+### Create a Task
+
+- Method: POST
+- URL: /tasks
+- Body Example:
+  {
+    "title": "New Task",
+    "description": "Learn API development",
+    "completed": false
+  }
+
+### Get All Tasks
+
+- Method: GET
+- URL: /tasks
+
+### Get a Task by ID
+
+- Method: GET
+- URL: /tasks/:id
+
+### Update a Task
+
+- Method: PUT
+- URL: /tasks/:id
+- Body Example:
+  {
+    "title": "Updated Title",
+    "completed": true
+  }
+
+### Delete a Task
+
+- Method: DELETE
+- URL: /tasks/:id
+
+---
+
+## How to Test the API
+
+You can test the API using:
+
+### Postman
+
+1. Open Postman and create a new request.
+2. Set the method and URL (e.g. POST http://localhost:3000/tasks).
+3. For POST and PUT, use the Body > raw > JSON format.
+4. Click Send to see the response.
+
+### curl (command line)
+
+# Create a new task
+curl -X POST http://localhost:3000/tasks \
+  -H "Content-Type: application/json" \
+  -d '{"title":"Test Task","description":"Using curl","completed":false}'
+
+# Get all tasks
+curl http://localhost:3000/tasks
+
+# Get task by ID
+curl http://localhost:3000/tasks/1
+
+# Update task
+curl -X PUT http://localhost:3000/tasks/1 \
+  -H "Content-Type: application/json" \
+  -d '{"completed": true}'
+
+# Delete task
+curl -X DELETE http://localhost:3000/tasks/1
